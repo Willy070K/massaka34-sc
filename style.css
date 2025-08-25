@@ -1,0 +1,246 @@
+/* 3D Cannabis-Inspired Creative Style */
+
+/* Animated gradient background with moving cannabis leaf pattern */
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(120deg, #0f3d0f 0%, #1a6b1a 100%);
+    position: relative;
+    overflow: hidden;
+    animation: gradientMove 8s ease-in-out infinite alternate;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* ...existing code... */
+
+/* Cannabis leaf pattern using provided PNG logo */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: url(/resim/logo.png); /* PNG dosyasını proje klasörüne ekleyin */
+    background-size: 120px 120px;
+    opacity: 0.08;
+    animation: leafMove 20s linear infinite;
+}
+
+/* ...existing code... */
+
+@keyframes leafMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 200px 200px; }
+}
+
+/* Center content using flexbox */
+.main-container {
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+/* Glassmorphism profile card */
+.profile-card {
+    background: rgba(255,255,255,0.18);
+    border-radius: 25px;
+    box-shadow: 0 8px 32px 0 rgba(34, 139, 34, 0.25), 0 1.5px 8px 0 rgba(0,0,0,0.08);
+    border: 2.5px solid rgba(0,255,127,0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 2.5rem 2rem 2rem 2rem;
+    max-width: 350px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: box-shadow 0.6s;
+}
+
+/* Glowing green border */
+.profile-card::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 30px;
+    pointer-events: none;
+    box-shadow: 0 0 32px 8px #00ff7f55;
+    z-index: 0;
+}
+
+/* Profile image with glowing ring and pulse on hover */
+.profile-img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 6px solid #00ff7f;
+    box-shadow: 0 0 24px 4px #00ff7f99;
+    object-fit: cover;
+    margin-bottom: 1.2rem;
+    transition: box-shadow 0.3s, transform 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-img:hover {
+    animation: pulseGlow 0.8s;
+    box-shadow: 0 0 36px 10px #00ff7fff;
+    transform: scale(1.06);
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 24px 4px #00ff7f99; }
+    50% { box-shadow: 0 0 48px 16px #00ff7fff; }
+    100% { box-shadow: 0 0 24px 4px #00ff7f99; }
+}
+
+/* Heading with gradient green text */
+.profile-heading {
+    font-size: 2.3rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    background: linear-gradient(90deg, #32cd32 0%, #00ff7f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.7rem;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Description */
+.profile-desc {
+    color: #e0e0e0;
+    font-size: 1.08rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    z-index: 1;
+}
+
+/* Neon green pill-shaped button */
+.profile-btn {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f3d0f;
+    background: #00ff7f;
+    border: none;
+    border-radius: 999px;
+    box-shadow: 0 0 18px 4px #00ff7f88, 0 2px 8px 0 rgba(0,0,0,0.09);
+    cursor: pointer;
+    transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+    margin-top: 0.5rem;
+    z-index: 1;
+}
+
+.profile-btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 32px 10px #00ff7fff, 0 2px 12px 0 rgba(0,0,0,0.12);
+    background: #32cd32;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.95rem;
+    color: #e0e0e0cc;
+    background: rgba(34, 139, 34, 0.12);
+    padding: 0.3rem 1.2rem;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .main-container {
+        min-height: 100vh;
+        padding: 0 0.5rem;
+    }
+    .profile-card {
+        max-width: 98vw;
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    }
+    .profile-heading {
+        font-size: 1.45rem;
+    }
+    .profile-img {
+        width: 80px;
+        height: 80px;
+    }
+    .footer {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.7rem;
+    }
+}
+/* ...existing code... */
+
+/* Sipariş kutusu için stil */
+.order-box {
+    background: rgba(34, 139, 34, 0.18);
+    border: 2px solid #00ff7f;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px 0 #00ff7f44;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    max-width: 320px;
+    width: 100%;
+    z-index: 2;
+}
+
+.order-box h2 {
+    color: #00ff7f;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.order-btn {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f3d0f;
+    background: #00ff7f;
+    border: none;
+    border-radius: 999px;
+    box-shadow: 0 0 18px 4px #00ff7f88, 0 2px 8px 0 rgba(0,0,0,0.09);
+    cursor: pointer;
+    transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+    margin-top: 0.5rem;
+    text-decoration: none;
+    z-index: 1;
+}
+
+.order-btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 32px 10px #00ff7fff, 0 2px 12px 0 rgba(0,0,0,0.12);
+    background: #32cd32;
+}
+
+/* ...existing code... */
